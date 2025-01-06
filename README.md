@@ -94,6 +94,14 @@ This file is a template you should use to implement your solution.
 
 You should implement the `vi_initialise()`, `vi_is_converged()`, `vi_iteration()`, `vi_get_state_value()`, `vi_select_action()`, `pi_initialise()`, `pi_is_converged()`, `pi_iteration()`, and `pi_select_action()` functions as well as any initialisation or helper functions you require.
 
+**tester.py**
+
+Use this script to evaluate your solution.
+Usage
+```
+python tester.py [testcases] [-v (optional)]
+```
+
 **testcases**
 
 A directory containing input files which can be used to evaluate your solution.
