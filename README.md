@@ -27,8 +27,8 @@ Returns a State object (see below) representing the initial state of the level.
 perform_action(state, action)
 ~~~~~
 Simulates the outcome of performing the given 'action' starting from the given 'state', where 'action' is an element of
-GameEnv.ACTIONS and 'state' is a State object. Returns a tuple of whether the action was successful (i.e. valid and
-collision free), the cost of performing the action, and the resulting new state
+GameEnv.ACTIONS and 'state' is a State object. Returns the reward (negative cost) of performing the action, and the
+resulting new state.
 
 
 ~~~~~
@@ -94,22 +94,9 @@ This file is a template you should use to implement your solution.
 
 You should implement the `vi_initialise()`, `vi_is_converged()`, `vi_iteration()`, `vi_get_state_value()`, `vi_select_action()`, `pi_initialise()`, `pi_is_converged()`, `pi_iteration()`, and `pi_select_action()` functions as well as any initialisation or helper functions you require.
 
-**tester.py**
-
-Use this script to evaluate your solution.  
-Usage
-```
-python tester.py [testcases] [-v (optional)]
-```
-
 **testcases**
 
 A directory containing input files which can be used to evaluate your solution.
 
 Testcase files can contain comments, starting with '#', which are ignored by the input file parser.
-
-# Changelog
-## 7/9/24
-- Added method `testcases_to_attempt()` to `solution.py`
-- Added `tester.py`
 

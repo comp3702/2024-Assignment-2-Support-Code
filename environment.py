@@ -176,7 +176,7 @@ class Environment:
                 try:
                     self.reward_tgt = float(line.strip())
                 except ValueError:
-                    assert False, f'!!! Invalid input file - cost target (line {line_num}) !!!'
+                    assert False, f'!!! Invalid input file - reward target (line {line_num}) !!!'
             elif self.episode_seed is None:
                 try:
                     self.episode_seed = int(line.strip())
@@ -273,10 +273,10 @@ class Environment:
 
     def apply_dynamics(self, state, movement):
         """
-        Perform the given action on the given state, and return the reward/cost received and the resulting new state.
+        Perform the given action on the given state, and return the reward received and the resulting new state.
         :param state:
         :param movement:
-        :return: (reward/cost [float], next_state [instance of State])
+        :return: (reward/negative cost [float], next_state [instance of State])
         """
         if movement == SPIN_LEFT or movement == SPIN_RIGHT:
             # no collision possible for spin actions
@@ -511,12 +511,11 @@ class Environment:
 
     def perform_action(self, state, action, seed=None):
         """
-        Perform the given action on the given state, and return whether the action was successful (i.e. valid and
-        collision free), the cost of performing the action, and the resulting new state.
+        Perform the given action on the given state, and return the reward received, and the resulting new state.
         :param state: 
         :param action:
         :param seed:
-        :return: (cost [float], next_state [instance of State])
+        :return: (reward/negative cost [float], next_state [instance of State])
         """
         # sample a movement outcome
         if seed is not None:
